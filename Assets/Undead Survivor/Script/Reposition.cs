@@ -5,7 +5,7 @@ using UnityEngine;
 public class Reposition : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if(!collision.CompareTag("Area"))
         {
@@ -28,6 +28,10 @@ public class Reposition : MonoBehaviour
                 if(diffX > diffY)
                 {
                     transform.Translate(Vector3.right * dirX * 40);
+                } 
+                else if(diffX < diffY)
+                {
+                    transform.Translate(Vector3.up * dirY * 40);
                 }
                 break;
             case "Enermy":
